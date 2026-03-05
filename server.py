@@ -38,6 +38,8 @@ def check_user(email):
     return True, None
 
 
+
+
 @app.route("/generate-novel", methods=["POST"])
 def generate_novel():
     try:
@@ -88,3 +90,16 @@ def generate_novel():
 @app.route("/")
 def home():
     return "Novel Generator Server Running"
+
+# 기존 코드 위에 다 있고...
+
+@app.route("/")
+def home():
+    return "Novel Generator Server Running"
+
+
+# 🔥 반드시 맨 아래에 추가
+if __name__ == "__main__":
+    import os
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
+
